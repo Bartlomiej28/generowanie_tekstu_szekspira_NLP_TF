@@ -58,7 +58,7 @@ shakespeare_model = tf.keras.Sequential([
     model
 ])
 
-y_proba = shakespeare_model.predict(["To be or not to b"])[0, -1]
+y_proba = shakespeare_model.predict(tf.constant(["To be or not to b"]))[0, -1]
 y_pred = tf.argmax(y_proba)
 char = text_vec_layer.get_vocabulary()[y_pred + 2]
 print(f"Predykcja dla tekstu 'To be or not to b': {char}")
